@@ -4,20 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"  href="./style.css" />
     <title>Document</title>
   </head>
   <body>
     <div class="app-container">
+      <div class="app-content">
       <h1>Awesome Books</h1>
       <div class="books-content">
 
       </div>
       <hr />
+      <h2>Add a new book</h2>
       <form id="form">
-        <input type="text" id="title" placeholder="Title" />
-        <input type="text" id="author" placeholder="Author" />
-        <input type="submit" value="Add" id="add-button" />
+        <input type="text" id="title" name='title' placeholder="Title" />
+        <input type="text" id="author" name='author' placeholder="Author" />
+        <input type="submit" value="Add Book" id="add-button" />
       </form>
+      </div>
     </div>
     <script src="./books.js"></script>
   </body>
