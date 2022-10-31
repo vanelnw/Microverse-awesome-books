@@ -1,8 +1,8 @@
 class Book {
   constructor(id, title, author) {
-    this.id = id
-      this.title = title
-      this.author = author
+    this.id = id;
+    this.title = title;
+    this.author = author;
   }
 }
 
@@ -10,18 +10,14 @@ class Library {
   #id = 0;
   constructor(Books) {
     this.Books = Books;
-   }
-
+  }
 
   // get Books() {
   //   return this._Books
   // }
-  
+
   addBook(data) {
-    let id = this.id 
-    
-    // console.log(data)
-    // console.log(data.get('title'))
+    let id = this.id;
     const book = new Book(id, data.get("title"), data.get("author"));
     this.Books.push(book);
     this.addBookInLocalStorage();
@@ -34,23 +30,21 @@ class Library {
   }
 
   removeBook(id) {
-    const newBooks = this.Books.filter(b => b.id !== id);
+    const newBooks = this.Books.filter((b) => b.id !== id);
     this.Books = newBooks;
     document.querySelector(`#Book${id}`).remove();
     localStorage.setItem("awesomeBooks", JSON.stringify(this.Books));
   }
-
 }
 
-const MyLibrary = new Library(JSON.parse(localStorage.getItem("awesomeBooks")) || []);
-
-console.log(MyLibrary);
+const MyLibrary = new Library(
+  JSON.parse(localStorage.getItem("awesomeBooks")) || []
+);
 
 let booksContent = document.querySelector(".books-content");
 const form = document.getElementById("form");
-
-// let awesomeBooks = JSON.parse(localStorage.getItem("awesomeBooks")) || [];
-
+const navLi = document.querySelectorAll("nav ul li");
+const sections = document.querySelectorAll("section");
 
 function displayBook(book) {
   booksContent.innerHTML += `
@@ -62,57 +56,56 @@ function displayBook(book) {
 }
 
 function renderBooks() {
-  MyLibrary.Books.forEach((book) => { displayBook(book);});
+  MyLibrary.Books.forEach((book) => {
+    displayBook(book);
+  });
 }
 
 renderBooks();
 
-// function addBook(event) {
-//   event.preventDefault();
-
-//   let id = 0;
-
-//   if (MyLibrary.Books.length > 0) {
-//     console.log(MyLibrary.Books.length);
-//     id = MyLibrary.Books[MyLibrary.Books.length - 1].id + 1;
-//   }
-
-//   const title = document.getElementById("title").value;
-//   const author = document.getElementById("author").value;
-
-//   const book = {
-//     id,
-//     title,
-//     author,
-//   };
-
-//   const book = new Book(id, title, author);
-
-//   MyLibrary.addBook(book)
-//   MyLibrary.addBookInLocalStorage();
-
-//   displayBook(book);
-//   awesomeBooks.push(book);
-
-//  localStorage.setItem("awesomeBooks", JSON.stringify(MyLibrary.Books));
-
-//   localStorage.setItem("awesomeBooks", JSON.stringify(awesomeBooks));
-// }
-
-// function removeBook(id) {
-//   console.log(MyLibrary.Books);
-//   MyLibrary.removeBook(id);
-//   console.log(MyLibrary.Books)
-//     console.log(id)
-//   awesomeBooks = awesomeBooks.filter((book) => book.id != id);
-//   document.querySelector(`#Book${id}`).remove();
-//   localStorage.setItem("awesomeBooks", JSON.stringify(awesomeBooks));
-// }
-
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   MyLibrary.addBook(new FormData(form));
-})
+});
 
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains('nav-link')) {
+    navLi.forEach((li) => {
+      li.classList.remove("active");
+      e.target.parentNode.classList.add("active");
+    });
 
-  // MyLibrary.addBook(new FormData(form));
+     sections.forEach((section) => {
+       section.classList = "hide-section";
+
+       if (e.target.getAttribute("id").includes(section.getAttribute("id"))) {
+         section.classList = "show-section";
+       }
+     });
+  }
+});
+
+function setCurrentTime() {
+  const n = new Date();
+  const y = n.getFullYear();
+  const m = n.toLocaleString("default", { month: "long" });
+  const d = n.getDate();
+
+  const h = n.getHours();
+  let mm = n.getMinutes();
+  if (mm < 10) {
+    mm = `0${mm}`;
+  }
+  let s = n.getSeconds();
+  if (s < 10) {
+    s = `0${s}`;
+  }
+
+  document.querySelector(
+    "#date_time"
+  ).textContent = `${m} ${d}th ${y}, ${h}:${mm}:${s}`;
+}
+
+setInterval(() => {
+  setCurrentTime();
+}, 1000);

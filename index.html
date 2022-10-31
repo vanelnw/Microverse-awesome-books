@@ -4,24 +4,68 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet"  href="./style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
   </head>
   <body>
     <div class="app-container">
+      <div class="navBar">
+        <div class="nav-content">
+          <div class="nav-logo">Awasome Books</div>
+          <nav>
+            <ul class="nav-list">
+              <li class="nav-item active">
+                <a href="#list" id="list-link" class="nav-link">List</a>
+              </li>
+              <div>|</div>
+              <li class="nav-item">
+                <a href="#add" id="add-link" class="nav-link">Add new</a>
+              </li>
+              <div>|</div>
+              <li class="nav-item">
+                <a href="#contact" id="contact-link" class="nav-link"
+                  >Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div id="date_time"></div>
+      </div>
       <div class="app-content">
-      <h1>Awesome Books</h1>
-      <div class="books-content">
+        <section id="list" class="show-section">
+          <h3>All Awesome Books</h3>
+          <div class="books-content"></div>
+        </section>
 
+        <!-- <h2>Add a new book</h2> -->
+        <section id="add" class="hide-section">
+     
+          <form id="form">
+                 <h3>Add a new book</h3>
+            <input type="text" id="title" name="title" placeholder="Title" />
+            <input type="text" id="author" name="author" placeholder="Author" />
+            <input type="submit" value="Add Book" id="add-button" />
+          </form>
+        </section>
+       
+        <section id="contact" class="hide-section">
+          <div id="contact-div">
+            <h3 class="contant-title">Contact information</h3>
+
+            <p>
+              Do have any questions or yuo just want to say "Hello"? <br />You
+              can reach out to us!
+            </p>
+
+            <ul>
+              <li>Our email: mail@mail.com</li>
+              <li>Our phone number: 0043586534422</li>
+              <li>Our address: Streetname 22, 84503 City, Country.</li>
+            </ul>
+          </div>
+        </section>
       </div>
-      <hr />
-      <h2>Add a new book</h2>
-      <form id="form">
-        <input type="text" id="title" name='title' placeholder="Title" />
-        <input type="text" id="author" name='author' placeholder="Author" />
-        <input type="submit" value="Add Book" id="add-button" />
-      </form>
-      </div>
+      <div class="copyright">copyright ...</div>
     </div>
     <script src="./books.js"></script>
   </body>

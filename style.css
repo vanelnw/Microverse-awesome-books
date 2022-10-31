@@ -30,14 +30,62 @@ a {
 .app-container {
   width: 100vw;
   height: 100vh;
+  padding:10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
  
 }
 
+/* navbar */
+.navBar {
+  width: 100%;
+  height: 100px;
+}
+
+.nav-content {
+  border: 2px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-item.active {
+  background-color: aqua;
+  padding: 5px 10px;
+  
+}
+
+.nav-item.active > a{
+  color: blue;
+}
+
+.nav-item > a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-item:hover > a {
+  color: blue;
+}
+
+
+/* content */
+
 .app-content{
-    width: 50%;
+    width: 75%;
+    height: 60vh;
     border: 2px solid black;
     padding: 5px;
-    margin: 50px auto;
+    margin: 30px auto;
     text-align: center;
 }
 
@@ -45,8 +93,6 @@ a {
     border: 2px solid black;
     margin-top: 10px;
 }
-
-
 
 .single-book{
     display: flex;
@@ -56,11 +102,6 @@ a {
 }
 .single-book:nth-child(2n+1){
     background-color: #ccc;
-}
-
-hr{
-    width: 100px;
-    margin: 20px auto;
 }
 
 #form{
@@ -76,9 +117,37 @@ input{
     width: 100%;
 }
 
-
 #add-button{
     width: fit-content;
     align-self: flex-end;
+}
+
+#contact-div {
+  margin: 20px 10px;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.copyright {
+  border: 2px solid black;
+  text-align: start;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.show-section {
+  display: block;
+}
+
+.hide-section {
+  display: none;
+}
+
+#date_time {
+  text-align: end;
+  margin-top: 5px;
 }
 
