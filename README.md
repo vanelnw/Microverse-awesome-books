@@ -21,7 +21,7 @@ Not available yet.
 
 - Create a folder into your storage device.
 - Open a command line Terminal and go to the new folder.
-- Execute: 'git clone git@github.com:lmunozm1702/awesome-books.git'
+- Execute: 'git clone https://github.com/vanelnw/Microverse-To-Do-List.git'
 - Open the index.html on your browser.
 
 ### Usage
